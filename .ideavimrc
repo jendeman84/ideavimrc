@@ -1,0 +1,67 @@
+""" Map leader to space ---------------------
+let mapleader=" "
+
+
+""" Plugins  --------------------------------
+set easymotion
+set number relativenumber
+set idearefactormode=keep
+set ideajoin
+set surround
+set clipboard+=unnamed
+set showmode
+set showcmd
+
+""" Change word where cursor stands on -------
+nmap <leader>j *``cgn
+
+""" Mappings --------------------------------
+map <leader>f <Plug>(easymotion-s)
+map <leader>e <Plug>(easymotion-f)
+
+""" Zen Mode --------------------------------
+map <leader>z <Action>(ToggleDistractionFreeMode)
+    
+""" Increment / Decrement -------------------
+map <leader>= <C-a> 
+map <leader>- <C-x>
+
+""" Visual block mode ------------------------
+map <leader>v <C-v>
+
+""" Selext text to end and to beginning of line
+nmap <S-Home> <Action>(EditorLineStartWithSelection)
+nmap <S-End> <Action>(EditorLineEndWithSelection)
+imap <S-Home> <Action>(EditorLineStartWithSelection)
+imap <S-End> <Action>(EditorLineEndWithSelection)
+vmap <S-Home> <Action>(EditorLineStartWithSelection)
+vmap <S-End> <Action>(EditorLineEndWithSelection)
+
+""" Move lines up and down -------------------
+
+""" Delete character -------------------------
+nmap <DELETE> x
+
+""" Go to declaration ------------------------
+nmap gd <Action>(GotoDeclaration)
+:map gh <Action>(ShowHoverInfo)
+
+" code Refactoring
+:map <leader>r <Action>(RenameElement)
+:map <leader>R <Action>(Refactorings.QuickListPopupAction)
+:map <leader>fc <Action>(ReformatCode)
+:map <leader>sw <Action>(SurroundWith)
+:map <leader>oi <Action>(OptimizeImports)
+
+
+" Select text with shift + arrow keys
+nnoremap <S-Left> :action EditorLeftWithSelection<CR>
+nnoremap <S-Right> :action EditorRightWithSelection<CR>
+nnoremap <S-Up> :action EditorUpWithSelection<CR>
+nnoremap <S-Down> :action EditorDownWithSelection<CR>
+
+inoremap <S-Left> <C-O>:action EditorLeftWithSelection<CR>
+inoremap <S-Right> <C-O>:action EditorRightWithSelection<CR>
+inoremap <S-Up> <C-O>:action EditorUpWithSelection<CR>
+inoremap <S-Down> <C-O>:action EditorDownWithSelection<CR>
+
