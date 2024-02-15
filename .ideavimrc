@@ -16,8 +16,8 @@ set showcmd
 nmap <leader>j *``cgn
 
 """ Mappings --------------------------------
-map <leader>f <Plug>(easymotion-s)
-map <leader>e <Plug>(easymotion-f)
+map f <Plug>(easymotion-s)
+map <leader><leader>e <Plug>(easymotion-f)
 
 """ Zen Mode --------------------------------
 map <leader>z <Action>(ToggleDistractionFreeMode)
@@ -64,4 +64,5 @@ inoremap <S-Left> <C-O>:action EditorLeftWithSelection<CR>
 inoremap <S-Right> <C-O>:action EditorRightWithSelection<CR>
 inoremap <S-Up> <C-O>:action EditorUpWithSelection<CR>
 inoremap <S-Down> <C-O>:action EditorDownWithSelection<CR>
+
 
