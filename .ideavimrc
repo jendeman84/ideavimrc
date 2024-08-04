@@ -65,10 +65,27 @@ nnoremap <S-Right> :action EditorRightWithSelection<CR>
 nnoremap <S-Up> :action EditorUpWithSelection<CR>
 nnoremap <S-Down> :action EditorDownWithSelection<CR>
 
-inoremap <S-Left> <C-O>:action EditorLeftWithSelectioni<CR>
+inoremap <S-Left> <C-O>:action EditorLeftWithSelection<CR>
 inoremap <S-Right> <C-O>:action EditorRightWithSelection<CR>
 inoremap <S-Up> <C-O>:action EditorUpWithSelection<CR>
 inoremap <S-Down> <C-O>:action EditorDownWithSelection<CR>
 
 " Now tab still works
 :map <Tab> >gv
+
+" Split window
+nnoremap <c-\> :action SplitVertically<CR>
+nnoremap <c--> :action SplitHorizontally<CR>
+
+
+sethandler <c-j> a:vim
+sethandler <c-k> a:vim
+
+nnoremap <leader>wh <c-w>h
+nnoremap <leader>wl <c-w>l
+nnoremap <leader>wj <c-w>j
+nnoremap <leader>wk <c-w>k
+nnoremap <leader>w<Left> <c-w>h
+nnoremap <leader>w<Right> <c-w>l
+nnoremap <leader>w<Down> <c-w>j
+nnoremap <leader>w<Up> <c-w>k
