@@ -81,11 +81,18 @@ nnoremap <c--> :action SplitHorizontally<CR>
 sethandler <c-j> a:vim
 sethandler <c-k> a:vim
 
+" Move between windows
 nnoremap <leader>wh <c-w>h
 nnoremap <leader>wl <c-w>l
 nnoremap <leader>wj <c-w>j
 nnoremap <leader>wk <c-w>k
 nnoremap <leader>w<Left> <c-w>h
-nnoremap <leader>w<Right> <c-w>l
+nnoremap <leader>w<Right> <c-w>l 
 nnoremap <leader>w<Down> <c-w>j
 nnoremap <leader>w<Up> <c-w>k
+
+" Open menu
+nnoremap <leader>m :action ShowPopupMenu<CR>
+
+" Show navbar
+nnoremap <leader>n :action ShowNavBar<CR>
