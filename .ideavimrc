@@ -1,4 +1,5 @@
 """ Map leader to space ---------------------
+nnoremap <SPACE> <Nop>
 let mapleader=" "
 
 
@@ -11,23 +12,38 @@ set surround
 set clipboard+=unnamed
 set showmode
 set showcmd
+set highlightedyank
+set which-key
+let notimeout
 
 """ Change word where cursor stands on -------
 nmap <leader>j *``cgn
+
+let g:WhichKeyDesc_change_word = '<leader>j Change word'
 
 """ Mappings --------------------------------
 map f <Plug>(easymotion-s)
 map <leader><leader>e <Plug>(easymotion-f)
 
+let g:WhichKeyDesc_easymotion_s = 'f Go to character'
+let g:WhichKeyDesc_easymotion_e = '<leader><leader>e Go to char after cursor'
+
 """ Zen Mode --------------------------------
-map <leader>z <Action>(ToggleDistractionFreeMode)
-    
+map <leader>z <Action>(HideAllWindows)
+
+let g:WhichKeyDesc_hide_all_windows = '<leader>z Hide tool windows'
+
 """ Increment / Decrement -------------------
 map <leader>= <C-a> 
 map <leader>- <C-x>
 
+let g:WhichKeyDesc_increment = '<leader>= Increment'
+let g:WhichKeyDesc_decrement = '<leader>- Decrement'
+
 """ Visual block mode ------------------------
 map <leader>v <C-v>
+
+let g:WhichKeyDesc_visual_block = '<leader>v Visual block mode'
 
 """ Selext text to end and to beginning of line
 nmap <S-Home> <Action>(EditorLineStartWithSelection)
@@ -37,19 +53,29 @@ imap <S-End> <Action>(EditorLineEndWithSelection)
 vmap <S-Home> <Action>(EditorLineStartWithSelection)
 vmap <S-End> <Action>(EditorLineEndWithSelection)
 
-""" Move lines up and down -------------------
+let g:WhichKeyDesc_line_start = '<S-Home> Select to beginning of line'
+let g:WhichKeyDesc_line_end = '<S-End> Select to end of line'
 
 """ Delete character -------------------------
 nmap <DELETE> x
+
+let g:WhichKeyDesc_delete_char = '<DELETE> Delete character'
 
 """ Go to declaration ------------------------
 nmap gd <Action>(GotoDeclaration)
 :map gh <Action>(ShowHoverInfo)
 
+let g:WhichKeyDesc_goto_declaration = 'gd Go to declaration'
+let g:WhichKeyDesc_show_hover_info = 'gh Show hover info'
+
 """ goto next / previous ---------------------
 nmap <A-[> :action MethodUp<cr>
 nmap <A-]> :action MethodDown<cr>
 nmap <A-c> gg/^class<cr>ell
+
+let g:WhichKeyDesc_method_up = '<A-[> Go to previous method'
+let g:WhichKeyDesc_method_down = '<A-]> Go to next method'
+let g:WhichKeyDesc_class = '<A-c> Go to class'
 
 " code Refactoring
 :map <leader>r <Action>(RenameElement)
@@ -58,6 +84,11 @@ nmap <A-c> gg/^class<cr>ell
 :map <leader>sw <Action>(SurroundWith)
 :map <leader>oi <Action>(OptimizeImports)
 
+let g:WhichKeyDesc_rename_element = '<leader>r Rename element'
+let g:WhichKeyDesc_quick_list_popup = '<leader>R Quick list popup'
+let g:WhichKeyDesc_reformat_code = '<leader>fc Reformat code'
+let g:WhichKeyDesc_surround_with = '<leader>sw Surround with'
+let g:WhichKeyDesc_optimize_imports = '<leader>oi Optimize imports'
 
 " Select text with shift + arrow keys
 nnoremap <S-Left> :action EditorLeftWithSelection<CR>
@@ -70,29 +101,37 @@ inoremap <S-Right> <C-O>:action EditorRightWithSelection<CR>
 inoremap <S-Up> <C-O>:action EditorUpWithSelection<CR>
 inoremap <S-Down> <C-O>:action EditorDownWithSelection<CR>
 
+let g:WhichKeyDesc_editor_left = '<S-Left> Select left'
+let g:WhichKeyDesc_editor_right = '<S-Right> Select right'
+let g:WhichKeyDesc_editor_up = '<S-Up> Select up'
+let g:WhichKeyDesc_editor_down = '<S-Down> Select down'
+
 " Now tab still works
 :map <Tab> >gv
 
 " Split window
-nnoremap <c-\> :action SplitVertically<CR>
-nnoremap <c--> :action SplitHorizontally<CR>
+nnoremap <leader>ww :action SplitVertically<CR>
+nnoremap <leader>wj :action SplitHorizontally<CR>
+nnoremap <leader>wq :action CloseContent<CR>
 
+let g:WhichKeyDesc_split_vertically = '<leader>ww Split vertically'
+let g:WhichKeyDesc_split_horizontally = '<leader>wj Split horizontally'
+let g:WhichKeyDesc_close_content = '<leader>wq Close content'
 
-sethandler <c-j> a:vim
-sethandler <c-k> a:vim
-
-" Move between windows
-nnoremap <leader>wh <c-w>h
-nnoremap <leader>wl <c-w>l
-nnoremap <leader>wj <c-w>j
-nnoremap <leader>wk <c-w>k
-nnoremap <leader>w<Left> <c-w>h
-nnoremap <leader>w<Right> <c-w>l 
-nnoremap <leader>w<Down> <c-w>j
-nnoremap <leader>w<Up> <c-w>k
+" Pane navigation
+nnoremap <A-h> <C-w>h
+nnoremap <A-l> <C-w>l
+nnoremap <A-k> <C-w>k
+nnoremap <A-j> <C-w>j
 
 " Open menu
-nnoremap <leader>m :action ShowPopupMenu<CR>
+noremap <leader>m :action ShowPopupMenu<CR>
+
+let g:WhichKeyDesc_popup_menu = '<leader>m Popup menu'
 
 " Show navbar
 nnoremap <leader>n :action ShowNavBar<CR>
+
+let g:WhichKeyDesc_navbar = '<leader>n Show navbar'
+
+nnoremap <leader>t :action ActivateTerminalToolWindow<CR>
