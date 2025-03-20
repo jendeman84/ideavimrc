@@ -112,11 +112,13 @@ let g:WhichKeyDesc_editor_down = '<S-Down> Select down'
 " Split window
 nnoremap <leader>ww :action SplitVertically<CR>
 nnoremap <leader>wj :action SplitHorizontally<CR>
-nnoremap <leader>wq :action CloseContent<CR>
+map <leader>wq <Action>(Unsplit)
 
 let g:WhichKeyDesc_split_vertically = '<leader>ww Split vertically'
 let g:WhichKeyDesc_split_horizontally = '<leader>wj Split horizontally'
 let g:WhichKeyDesc_close_content = '<leader>wq Close content'
+
+nnoremap ga :only<bar>vsplit<CR>gd
 
 " Pane navigation
 nnoremap <A-h> <C-w>h
