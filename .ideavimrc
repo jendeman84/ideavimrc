@@ -13,6 +13,7 @@ set clipboard+=unnamed
 set showmode
 set showcmd
 set highlightedyank
+set NERDTree
 set which-key
 let notimeout
 
@@ -136,4 +137,16 @@ nnoremap <leader>n :action ShowNavBar<CR>
 
 let g:WhichKeyDesc_navbar = '<leader>n Show navbar'
 
-nnoremap <leader>t :action ActivateTerminalToolWindow<CR>
+" Move to the next word, even if it is camel cased
+map w [w
+
+" Move to the end of the next word
+map e ]w
+
+" Move to the beginning of the previous word
+map b [b
+
+" Move to the ned of the previous word
+map ge ]b
+
+map <leader>t :NERDTree<CR>
